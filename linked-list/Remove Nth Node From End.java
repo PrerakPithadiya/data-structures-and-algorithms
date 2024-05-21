@@ -5,36 +5,34 @@ public class RemoveNthNodeFromEnd {
     /**
      * Removes the nth node from the end of the linked list.
      *
-     * This method first calculates the size of the linked list, then finds the node just before
-     * the nth node from the end and adjusts the pointers to remove the nth node.
+     * This method calculates the size of the linked list and determines the node to be removed
+     * by finding its position from the beginning. If the nth node from the end is the head,
+     * the head is updated. Otherwise, the appropriate node is skipped.
      *
      * @param head the head of the linked list
-     * @param n the position from the end of the list of the node to remove
+     * @param n the position from the end of the node to be removed (1-based index)
      * @return the head of the modified linked list
-     * @throws IllegalArgumentException if n is greater than the size of the list
      */
     public Node removeNthFromEnd(Node head, int n) {
-        int listSize = size(head);
+        int size = getSize(head);
 
-        // Handle invalid n values
-        if (n > listSize || n <= 0) {
-            throw new IllegalArgumentException("Invalid value of n: " + n);
+        // If the node to remove is the head
+        if (n == size) {
+            head = head.next;
+            return head;
         }
 
-        // If n equals the size, remove the head node
-        if (n == listSize) {
-            return head.next;
-        }
-
-        int targetIndex = listSize - n - 1;
+        // Find the position to start removing from the beginning (0-based index)
+        int targetIndex = size - n - 1;
         Node currentNode = head;
+
+        // Traverse to the node just before the target node
         for (int currentIndex = 0; currentIndex < targetIndex; currentIndex++) {
             currentNode = currentNode.next;
         }
 
-        if (currentNode.next != null) {
-            currentNode.next = currentNode.next.next;
-        }
+        // Skip the target node
+        currentNode.next = currentNode.next.next;
 
         return head;
     }
@@ -42,10 +40,12 @@ public class RemoveNthNodeFromEnd {
     /**
      * Calculates the size of the linked list.
      *
+     * This method traverses the linked list and counts the number of nodes.
+     *
      * @param head the head of the linked list
      * @return the size of the linked list
      */
-    public int size(Node head) {
+    public int getSize(Node head) {
         int size = 0;
         Node currentNode = head;
         while (currentNode != null) {
@@ -56,7 +56,7 @@ public class RemoveNthNodeFromEnd {
     }
 
     // Node class representing each element in the linked list
-    public static class Node {
+    public class Node {
         int data;
         Node next;
 
