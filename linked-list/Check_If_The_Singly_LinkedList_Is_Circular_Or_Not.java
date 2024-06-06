@@ -1,9 +1,19 @@
 package linkedlist.singly;
 
-// Class to check if a singly linked list is circular
+/**
+ * Overview:
+ * The CircularLinkedListChecker class provides functionality to determine whether a singly linked list is circular.
+ * A linked list is considered circular if there is a node in the list whose `next` pointer points back to one of the previous nodes in the list, forming a loop.
+ */
+
 class CircularLinkedListChecker {
     
-    // Method to determine if the linked list is circular
+    /**
+     * Method to determine if the linked list is circular.
+     *
+     * @param head The head node of the singly linked list.
+     * @return boolean - true if the linked list is circular, false otherwise.
+     */
     public boolean isCircular(Node head) {
         if (head == null) {
             // An empty list is not circular
@@ -28,19 +38,41 @@ class CircularLinkedListChecker {
         return false;
     }
 
-    // Inner class to represent a node in the singly linked list
+    /**
+     * Inner class to represent a node in the singly linked list.
+     */
     static class Node {
         int data;
         Node next;
 
-        // Constructor to initialize the node
+        /**
+         * Constructor to initialize the node.
+         *
+         * @param data The value to be stored in the node.
+         */
         Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
-    // Main method to test the functionality
+    /**
+     * Main method to test the functionality.
+     *
+     * Usage:
+     * To compile and run the code:
+     * 1. Save the file as CircularLinkedListChecker.java
+     * 2. Open a terminal and navigate to the directory containing the file.
+     * 3. Compile the code using the command: javac CircularLinkedListChecker.java
+     * 4. Run the code using the command: java linkedlist.singly.CircularLinkedListChecker
+     *
+     * Example of input and expected output:
+     * - Creating a non-circular linked list: 1 -> 2 -> 3
+     *   Expected output: "Is the linked list circular? false"
+     *
+     * - Creating a circular linked list: 1 -> 2 -> 3 -> 1 (points back to the head)
+     *   Expected output: "Is the linked list circular? true"
+     */
     public static void main(String[] args) {
         CircularLinkedListChecker checker = new CircularLinkedListChecker();
 
@@ -64,3 +96,12 @@ class CircularLinkedListChecker {
         System.out.println("Is the linked list circular? " + checker.isCircular(headCircular)); // Expected output: true
     }
 }
+
+/**
+ * Edge Cases:
+ * - The code handles the edge case of an empty list by returning false.
+ * - The code properly identifies a circular linked list regardless of its length.
+ * 
+ * Dependencies:
+ * - This code does not have any external library dependencies and runs with standard Java SE.
+ */
