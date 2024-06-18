@@ -1,4 +1,4 @@
-  import java.util.Stack;
+import java.util.Stack;
 import java.util.Random;
 import java.util.Scanner;
 
