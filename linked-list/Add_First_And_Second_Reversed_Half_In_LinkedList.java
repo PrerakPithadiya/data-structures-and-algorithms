@@ -12,20 +12,20 @@ class LinkedListNode {
     }
 }
 
-public class Solution {
-    
+class Solution {
+
     // Method to reverse a linked list
-    public static LinkedListNode reverse(LinkedListNode head) {
+    private static LinkedListNode reverse(LinkedListNode head) {
         LinkedListNode prev = null, current = head, next;
 
         while (current != null) {
-            next = current.next;  // Store next node
-            current.next = prev;  // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
+            next = current.next; // Store next node
+            current.next = prev; // Reverse current node's pointer
+            prev = current; // Move pointers one position ahead
             current = next;
         }
 
-        return prev;  // New head of the reversed list
+        return prev; // New head of the reversed list
     }
 
     // Method to add the first half of the list to the reversed second half
@@ -64,16 +64,23 @@ public class Solution {
         }
 
         // Add remaining elements from the first half if any
-        if (firstPtr != null) {
+        while (firstPtr != null) {
             sum = firstPtr.data + carry;
             carry = sum / 10;
             value = sum % 10;
             resultPtr.data = value;
+            resultPtr = resultPtr.next;
+            firstPtr = firstPtr.next;
         }
 
         // If there's any carry left, add a new node
         if (carry != 0) {
-            resultPtr.next = new LinkedListNode(carry);
+            LinkedListNode newNode = new LinkedListNode(carry);
+            LinkedListNode temp = firstHalf;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
         }
 
         // Step 4: Reverse the result list to restore original order

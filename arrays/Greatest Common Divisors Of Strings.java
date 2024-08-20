@@ -2,7 +2,7 @@
  * This class provides a solution for finding the greatest common divisor (GCD)
  * of two strings.
  */
-public class Solution {
+class Solution {
     /**
      * Finds the greatest common divisor of two strings.
      *

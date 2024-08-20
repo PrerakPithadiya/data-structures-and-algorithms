@@ -1,7 +1,7 @@
 /**
  * Solution class for the flower planting problem.
  */
-public class Solution {
+class Solution {
     /**
      * Determines if n flowers can be planted in the given flowerbed without
      * violating the no-adjacent-flowers rule.
