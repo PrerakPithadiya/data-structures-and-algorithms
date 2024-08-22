@@ -1,36 +1,38 @@
-import java.util.Stack;
-import java.util.Random;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 
-public class StackInsertExample {
+class StackInsertExample {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            Deque<Integer> stack = new ArrayDeque<>();
+            stack.push(12);
+            stack.push(50);
+            stack.push(28);
+            stack.push(33);
+            stack.push(76);
 
-        Stack<Integer> stack = new Stack<>();
-        stack.push(12);
-        stack.push(50);
-        stack.push(28);
-        stack.push(33);
-        stack.push(76);
+            System.out.println("Stack before insertion: " + stack);
 
-        System.out.println("Stack before insertion: " + stack);
+            System.out.print("Enter the value to insert at the bottom of the stack: ");
+            int valueToInsert = scanner.nextInt();
 
-        System.out.print("Enter the value to insert at the bottom of the stack: ");
-        int valueToInsert = scanner.nextInt();
+            insertAtBottom(stack, valueToInsert);
 
-        insertAtBottom(stack, valueToInsert);
-
-        System.out.println("Stack after insertion: " + stack);
+            System.out.println("Stack after insertion: " + stack);
+        }
     }
-    
+
     /**
      * Inserts a value at the bottom of the stack.
      *
      * @param stack The stack where the value will be inserted.
      * @param value The value to be inserted at the bottom.
      */
-    public static void insertAtBottom(Stack<Integer> stack, int value) {
-        Stack<Integer> tempStack = new Stack<>();
+    public static void insertAtBottom(Deque<Integer> stack, int value) {
+        Deque<Integer> tempStack = new ArrayDeque<>();
 
         // Transfer all elements from the original stack to the temporary stack
         while (!stack.isEmpty()) {

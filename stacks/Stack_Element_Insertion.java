@@ -1,9 +1,11 @@
-import java.util.Stack;
 
-public class StackOperations {
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+class StackOperations {
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         stack.push(12);
         stack.push(50);
         stack.push(28);
@@ -24,10 +26,11 @@ public class StackOperations {
      * Inserts an element at the specified position in the stack.
      *
      * @param stack The stack where the element will be inserted.
-     * @param position The position at which the element should be inserted (0-based index).
+     * @param position The position at which the element should be inserted
+     * (0-based index).
      * @param value The value to be inserted.
      */
-    public static void insertAtPosition(Stack<Integer> stack, int position, int value) {
+    public static void insertAtPosition(Deque<Integer> stack, int position, int value) {
         int size = stack.size();
 
         // Validate the position
@@ -41,7 +44,7 @@ public class StackOperations {
             return;
         }
 
-        Stack<Integer> tempStack = new Stack<>();
+        Deque<Integer> tempStack = new ArrayDeque<>();
 
         // Transfer elements from the original stack to the temporary stack until the desired position is reached
         for (int i = 0; i < size - position; i++) {
