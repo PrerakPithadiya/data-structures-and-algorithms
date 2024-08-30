@@ -1,30 +1,28 @@
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
+/**
+ * This class provides a solution for modifying graph edge weights to achieve a
+ * specific target distance between a source and destination node.
+ */
 class Solution {
 
+    /**
+     * Modifies the edge weights of a graph to achieve a target distance between
+     * source and destination.
+     *
+     * @param n The number of nodes in the graph.
+     * @param edges The array of edges, where each edge is [nodeA, nodeB,
+     * weight].
+     * @param source The source node.
+     * @param destination The destination node.
+     * @param target The target distance between source and destination.
+     * @return The modified edges array, or an empty array if it's impossible to
+     * achieve the target.
+     */
     public int[][] modifiedGraphEdges(int n, int[][] edges, int source, int destination, int target) {
-        List<int[]>[] adjacencyList = new ArrayList[n];
-        for (int i = 0; i < n; i++) {
-            adjacencyList[i] = new ArrayList<>();
-        }
-        for (int i = 0; i < edges.length; i++) {
-            int nodeA = edges[i][0], nodeB = edges[i][1];
-            adjacencyList[nodeA].add(new int[]{nodeB, i});
-            adjacencyList[nodeB].add(new int[]{nodeA, i});
-        }
-
-        int[][] distances = new int[n][2];
-        Arrays.fill(distances[source], 0);
-        for (int i = 0; i < n; i++) {
-            if (i != source) {
-                distances[i][0] = distances[i][1] = Integer.MAX_VALUE;
-            }
-        }
+        List<int[]>[] adjacencyList = buildAdjacencyList(n, edges);
+        int[][] distances = initializeDistances(n, source);
 
         runDijkstra(adjacencyList, edges, distances, source, 0, 0);
         long difference = (long) target - distances[destination][0];
@@ -36,14 +34,57 @@ class Solution {
             return new int[][]{};
         }
 
-        for (int[] edge : edges) {
-            if (edge[2] == -1) {
-                edge[2] = 1;
-            }
-        }
-        return edges;
+        return finalizeEdges(edges);
     }
 
+    /**
+     * Builds an adjacency list representation of the graph.
+     *
+     * @param n The number of nodes in the graph.
+     * @param edges The array of edges.
+     * @return The adjacency list representation of the graph.
+     */
+    private List<int[]>[] buildAdjacencyList(int n, int[][] edges) {
+        List<int[]>[] adjacencyList = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adjacencyList[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < edges.length; i++) {
+            int nodeA = edges[i][0], nodeB = edges[i][1];
+            adjacencyList[nodeA].add(new int[]{nodeB, i});
+            adjacencyList[nodeB].add(new int[]{nodeA, i});
+        }
+        return adjacencyList;
+    }
+
+    /**
+     * Initializes the distances array for Dijkstra's algorithm.
+     *
+     * @param n The number of nodes in the graph.
+     * @param source The source node.
+     * @return The initialized distances array.
+     */
+    private int[][] initializeDistances(int n, int source) {
+        int[][] distances = new int[n][2];
+        Arrays.fill(distances[source], 0);
+        for (int i = 0; i < n; i++) {
+            if (i != source) {
+                distances[i][0] = distances[i][1] = Integer.MAX_VALUE;
+            }
+        }
+        return distances;
+    }
+
+    /**
+     * Runs Dijkstra's algorithm on the graph.
+     *
+     * @param adjacencyList The adjacency list representation of the graph.
+     * @param edges The array of edges.
+     * @param distances The distances array to be updated.
+     * @param source The source node.
+     * @param difference The difference to be added to -1 weighted edges.
+     * @param run The current run (0 or 1) of the algorithm.
+     */
     private void runDijkstra(List<int[]>[] adjacencyList, int[][] edges, int[][] distances, int source, long difference, int run) {
         int n = adjacencyList.length;
         PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(a -> a[1]));
@@ -85,6 +126,26 @@ class Solution {
         }
     }
 
+    /**
+     * Finalizes the edges array by replacing any remaining -1 weights with 1.
+     *
+     * @param edges The array of edges to be finalized.
+     * @return The finalized edges array.
+     */
+    private int[][] finalizeEdges(int[][] edges) {
+        for (int[] edge : edges) {
+            if (edge[2] == -1) {
+                edge[2] = 1;
+            }
+        }
+        return edges;
+    }
+
+    /**
+     * Main method to run test cases for the solution.
+     *
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         Solution solution = new Solution();
 
