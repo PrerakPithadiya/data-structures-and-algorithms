@@ -143,15 +143,6 @@ class Solution {
 }
 
 /*
-Usage Instructions:
-1. Compile the Java file containing this code.
-2. Run the compiled program to see the results of the test cases.
-3. To use this solution in your own code:
-   a. Create a binary tree using the Node class.
-   b. Create an instance of the Solution class.
-   c. Call the connect method with the root of your binary tree.
-   d. The method will modify the tree in-place, connecting the next pointers.
-
 Design and Implementation Notes:
 - The solution uses a level-by-level approach to connect nodes.
 - It maintains pointers to the leftmost node of each level and the previous node processed.
