@@ -8,4 +8,14 @@ public class Arrays {
         throw new UnsupportedOperationException("Unimplemented method 'asList'");
     }
 
+    public static void sort(int[] sortedArr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'sort'");
+    }
+
+    public static String toString(int[] result1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+    }
+
 }
