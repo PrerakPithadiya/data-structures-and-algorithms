@@ -5,6 +5,13 @@
       "type": "java",
       "name": "Solution",
       "request": "launch",
+      "mainClass": "greedy.Solution",
+      "projectName": "data-structures-and-algorithms-18_3f5f67c4"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
       "mainClass": "Solution",
       "projectName": "data-structures-and-algorithms-5_f9ea5133"
     },
