@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SplitLinkedListByPairwiseComparison",
+      "request": "launch",
+      "mainClass": "SplitLinkedListByPairwiseComparison",
+      "projectName": "data-structures-and-algorithms_8f63055e"
+    },
+    {
+      "type": "java",
       "name": "Solution",
       "request": "launch",
       "mainClass": "Solution",

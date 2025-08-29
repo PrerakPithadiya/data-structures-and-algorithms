@@ -1,4 +1,6 @@
+
 class Node {
+
     int data;
     Node next;
 
@@ -9,6 +11,7 @@ class Node {
 }
 
 class LinkedList {
+
     Node head;
 
     // Constructor to initialize an empty linked list
@@ -70,6 +73,7 @@ class LinkedList {
 }
 
 public class Solution {
+
     public static void main(String[] args) {
         // Create a new linked list
         LinkedList list = new LinkedList();
