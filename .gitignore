@@ -1,0 +1,34 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# VS Code
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build directories
+bin/
+out/
+
+# IDE files
+*.iml
+.idea/
+
+# Maven/Gradle
+.target/
+.gradle/
+
+# Others
+*.swp
+*.swo
+
+# Ignore node_modules if present
+node_modules/
