@@ -1,4 +1,50 @@
 
+/**
+ * <h2>Hamming Distance</h2>
+ *
+ * <p>
+ * The Hamming distance between two integers is the number of positions at which
+ * the corresponding bits are different.
+ * </p>
+ *
+ * <p>
+ * Given two integers <code>x</code> and <code>y</code>, this solution
+ * calculates the Hamming distance.
+ * </p>
+ *
+ * <h3>Example:</h3>
+ * <p>
+ * Input: x = 1, y = 4
+ * </p>
+ * <p>
+ * Output: 2
+ * </p>
+ *
+ * <p>
+ * Explanation:
+ * </p>
+ * <p>
+ * 1 (0 0 0 1)
+ * </p>
+ * <p>
+ * 4 (0 1 0 0)
+ * </p>
+ * <p>
+ * &uarr; &uarr;
+ * </p>
+ * <p>
+ * The arrows point to the positions where the corresponding bits are different.
+ * </p>
+ *
+ * <h3>Significance:</h3>
+ * <p>
+ * The Hamming distance is a fundamental concept in computer science and
+ * telecommunications, crucial for error detection and correction in data
+ * transmission (coding theory). It measures the dissimilarity between two
+ * strings of equal length, ensuring data integrity over noisy channels. It also
+ * finds applications in cryptography and bioinformatics.
+ * </p>
+ */
 class Solution {
 
     /**
