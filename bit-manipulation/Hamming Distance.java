@@ -1,4 +1,3 @@
-
 /**
  * <h2>Hamming Distance</h2>
  *
@@ -45,8 +44,7 @@
  * finds applications in cryptography and bioinformatics.
  * </p>
  */
-class Solution {
-
+public class Solution {
     /**
      * Calculates the Hamming distance between two integers.
      *
@@ -84,7 +82,7 @@ class Solution {
         // Example 3: More complex numbers
         int x3 = 93, y3 = 73;
         System.out.println("Example 3 (x=93, y=73): " + solution.hammingDistance(x3, y3)); // Expected: 2
-
+        
         // Example 4: Identical numbers
         int x4 = 255, y4 = 255;
         System.out.println("Example 4 (x=255, y=255): " + solution.hammingDistance(x4, y4)); // Expected: 0
