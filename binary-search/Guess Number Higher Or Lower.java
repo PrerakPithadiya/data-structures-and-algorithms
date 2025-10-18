@@ -1,9 +1,21 @@
+class GuessGame {
+    int pick;
+    int guess(int num) {
+        if (num > pick) {
+            return -1;
+        } else if (num < pick) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
 
 /**
  * This class extends GuessGame and implements the guessNumber method to solve the "Guess Number Higher or Lower" problem.
  * The problem involves guessing a picked number within a given range using a binary search approach.
  */
-public class Solution extends GuessGame {
+class Solution extends GuessGame {
 
     /**
      * Guesses the picked number using binary search.
@@ -12,7 +24,6 @@ public class Solution extends GuessGame {
      * picked.
      * @return The correctly guessed number.
      */
-    @Override
     public int guessNumber(int n) {
         long left = 1;
         long right = n;
